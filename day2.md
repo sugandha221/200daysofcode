@@ -1,5 +1,5 @@
 #!/bin/python3
-
+'''Q-1'''
 import os
 import sys
 def timeConversion(s):
@@ -34,8 +34,8 @@ if __name__ == '__main__':
     
     
     
-    #Q-2
-    #!/bin/python3
+#!/bin/python3
+'''Q-2'''
 
 import math
 import os
