@@ -1,0 +1,78 @@
+'''Q-1'''
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Complete the findDigits function below.
+int findDigits(int n) {
+        int num=n;
+    int rem=0;
+    int count=0;
+        while(num>0)
+        {
+            rem=num%10;
+            if(rem!=0)
+            {
+               if(n%rem==0)
+                {
+                    count+=1;
+                } 
+            }
+            num=num/10;
+        }
+    return count;
+}
+
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int t;
+    cin >> t;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+        int n;
+        cin >> n;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        int result = findDigits(n);
+
+        fout << result << "\n";
+    }
+
+    fout.close();
+
+    return 0;
+}
+
+
+#!/bin/python3
+'''Q-2'''
+
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the birthdayCakeCandles function below.
+def birthdayCakeCandles(ar):
+    ar.sort(reverse=True)
+    return(ar.count(ar[0]))
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    ar_count = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = birthdayCakeCandles(ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
