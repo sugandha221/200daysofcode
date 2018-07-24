@@ -1,0 +1,107 @@
+
+/*
+
+'''Q-1'''
+class Node {
+    public:
+        int data;
+        Node *left;
+        Node *right;
+        Node(int d) {
+            data = d;
+            left = NULL;
+            right = NULL;
+        }
+};
+*/
+void printGivenLevel(Node * root, int level)
+{
+    if (root == NULL)
+        return;
+    if (level == 1)
+        cout<< root->data<<" ";
+    else if (level > 1)
+    {
+        printGivenLevel(root->left, level-1);
+        printGivenLevel(root->right, level-1);
+    }
+}
+ 
+
+    void levelOrder(Node * root) {
+    int h = height(root);
+    int i;
+    for (i=1; i<=h; i++)
+        printGivenLevel(root, i);
+
+    }
+int height(Node * node)
+{
+    if (node==NULL)
+        return 0;
+    else
+    {
+        int lheight = height(node->left);
+        int rheight = height(node->right);
+        if (lheight > rheight)
+            return(lheight+1);
+        else return(rheight+1);
+    }
+}
+
+
+
+#include <bits/stdc++.h>
+//Q-2
+
+using namespace std;
+
+// Complete the solve function below.
+string solve(int year) {
+    if(year<1918)
+    {
+        if(year%4==0)
+        {
+            return("12.09."+to_string(year)); 
+        }
+        else
+        {
+            return("13.09."+to_string(year));
+        }
+    }
+    else if(year==1918)
+    {
+        return("26.09."+to_string(year));
+    }
+    else
+    {
+        if(year%400==0||(year%4==0&&year%100!=0))
+        {
+            return("12.09."+to_string(year));
+        }
+        else
+        {
+            return("13.09."+to_string(year));
+        }
+    }
+    
+
+
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int year;
+    cin >> year;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    string result = solve(year);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
