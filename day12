@@ -1,0 +1,87 @@
+#!/bin/python3
+
+'''Q-1'''
+
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the cutTheSticks function below.
+def cutTheSticks(arr):
+    arr1=[]
+    while len(arr)>0:
+        arr1.append(len(arr))
+        c=min(arr)
+        #print(min(arr))
+        for i in range(0,len(arr)):
+            arr[i]=arr[i]-c
+        for i in range(0,len(arr)):
+            if 0 in arr:
+                arr.remove(0)
+    return(arr1)
+                
+            
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = cutTheSticks(arr)
+
+    fptr.write('\n'.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+    
+    
+    
+#!/bin/python3
+
+'''Q-2'''
+
+
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the angryProfessor function below.
+def angryProfessor(k, a):
+    count=0
+    for i in a:
+        if i<=0:
+            count+=1
+    if count<k:
+        return("YES")
+    else:
+        return("NO")
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input())
+
+    for t_itr in range(t):
+        nk = input().split()
+
+        n = int(nk[0])
+
+        k = int(nk[1])
+
+        a = list(map(int, input().rstrip().split()))
+
+        result = angryProfessor(k, a)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
+
