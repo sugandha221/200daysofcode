@@ -1,0 +1,34 @@
+#!/bin/python3
+
+'''Q-1'''
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the repeatedString function below.
+def repeatedString(s, n):
+    cn=0
+    div=int(n)/len(s)
+    rem=n%len(s)
+    cn+=s.count('a')*int(div)
+    aa=s[0:rem]
+    cn+=aa.count('a')
+    print(int(cn))
+    return(int(cn))
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    n = int(input())
+
+    result = repeatedString(s, n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
