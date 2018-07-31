@@ -1,0 +1,84 @@
+#!/bin/python3
+
+'''Q-1'''
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the sockMerchant function below.
+def sockMerchant(n, ar):
+    cnt=0
+    while ar!=[]:
+        for i in ar:
+            print(i)
+            c=ar.count(i)
+            print(c)
+            cnt+=int(c/2)
+            while i in ar:
+                ar.remove(i)
+            print(ar)
+    return(int(cnt))
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = sockMerchant(n, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    #!/bin/python3
+    
+    '''Q-2'''
+    
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the minimumDistances function below.
+def minimumDistances(a):
+    minn=10000
+    count=0
+    dist=0
+    for i in range(0,len(a)):
+        count=0
+        for j in range(i,len(a)):
+            if a[j]==a[i]:
+                count+=1
+        #print(count)
+        if count>1: 
+            print(a[i])
+            dist=((a[i+1:].index(a[i]))+1)
+            if dist<minn:
+                minn=dist
+    if dist==0:
+        minn=-1
+    return(str(minn))
+            
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    a = list(map(int, input().rstrip().split()))
+
+    result = minimumDistances(a)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
